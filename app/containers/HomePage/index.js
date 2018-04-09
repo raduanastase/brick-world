@@ -12,8 +12,24 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import 'whatwg-fetch';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  componentDidMount() {
+    console.log(this.fetchData());
+  }
+
+  async fetchData() {
+    const response = await fetch('https://rebrickable.com/api/v3/lego/colors/?key=a2d852e7a203d7d4fb41f79feaa712ae');
+
+    return response;
+    /*if (ok) {
+      return json;
+    } else {
+      return json;
+    }*/
+  }
+
   render() {
     return (
       <h1>
